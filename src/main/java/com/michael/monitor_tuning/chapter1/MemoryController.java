@@ -16,7 +16,7 @@ import java.util.UUID;
 public class MemoryController {
 
     private List<User> userList = new ArrayList<>();
-
+    private List<Class<?>> classList = new ArrayList<>();
     /**
      * -Xmx32M -Xms32M 设置堆栈内存.
      * @return
@@ -26,6 +26,17 @@ public class MemoryController {
         while (true) {
             int i = 0;
             userList.add(new User(i++, UUID.randomUUID().toString()));
+        }
+    }
+
+    /**
+     * -XX:MetaspaceSize=32M -XX:MaxMetaspaceSize=32M
+     * @return
+     */
+    @GetMapping("/nonheap")
+    public String nonheap() {
+        while (true) {
+            classList.addAll(Metaspace.createClasses());
         }
     }
 }

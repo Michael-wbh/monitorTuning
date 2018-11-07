@@ -24,7 +24,7 @@ public class Metaspace extends ClassLoader {
                     "java/lang/Object", null);
             // 定义构造函数<init>方法
             MethodVisitor mw = cw.visitMethod(Opcodes.ACC_PUBLIC, "<init>",
-                    "()V", null, null);
+            "()V", null, null);
             // 第一个指令为加载this
             mw.visitVarInsn(Opcodes.ALOAD, 0);
             // 第二个指令为调用父类Object的构造函数
