@@ -1,5 +1,6 @@
-package com.michael.monitor_tuning.chapter1.chapter4;
+package com.michael.monitor_tuning.chapter4;
 
+import com.michael.monitor_tuning.chapter1.User;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,11 @@ public class Ch4Controller {
 
     @RequestMapping("/arg1")
     public String arg1(@RequestParam("name") String name) {
-        return "hello " + name;
+        return "hello, " + name;
+    }
+
+    @RequestMapping("/constructor")
+    public User constructor(User user) {
+        return user;
     }
 }
